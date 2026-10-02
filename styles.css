@@ -106,3 +106,47 @@ footer a { text-align: right; }
   .hero { min-height: 72vh; }
   h1 { font-size: clamp(3rem, 16vw, 4.6rem); }
 }
+
+/* Mobile typography + footer balance */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (max-width: 580px) {
+  .wordmark { font-size: 1.2rem; }
+
+  .airaware-mark img {
+    height: 32px !important;
+    max-width: 90px !important;
+  }
+
+  .grimdata-mark { font-size: .78rem; }
+
+  footer {
+    gap: 10px;
+    font-size: .95rem;
+  }
+
+  .footer-brand {
+    font-size: 1.45rem;
+  }
+
+  footer > p {
+    font-size: .95rem;
+    line-height: 1.45;
+  }
+
+  /* Keep the disclaimer strip visually secondary on small screens. */
+  footer > p[style*="grid-column"],
+  footer > div[style*="grid-column"] {
+    font-size: .68rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* If the stacked footer slogan is present, keep it readable but subordinate. */
+  footer > p[style*="text-align: right"] {
+    font-size: .9rem !important;
+    line-height: 1.18 !important;
+  }
+}
