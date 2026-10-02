@@ -150,3 +150,111 @@ html {
     line-height: 1.18 !important;
   }
 }
+
+/* Conservative responsive polish: preserve desktop design, improve narrow screens. */
+.site-header .wordmark,
+.site-header .project-links,
+.site-header .mini-mark {
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    gap: 14px;
+  }
+
+  nav {
+    margin-left: auto;
+    min-width: 0;
+  }
+
+  .project-links {
+    display: flex !important;
+    align-items: center;
+    flex-wrap: nowrap !important;
+  }
+
+  footer > p:not([style*="grid-column"]) {
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: 580px) {
+  .site-header {
+    padding: 14px 16px;
+  }
+
+  .wordmark {
+    font-size: 1.18rem;
+  }
+
+  .project-links {
+    gap: 9px !important;
+  }
+
+  .airaware-mark {
+    gap: 4px !important;
+  }
+
+  .airaware-mark img {
+    height: 31px !important;
+    width: auto !important;
+    max-width: 88px !important;
+  }
+
+  .airaware-mark span {
+    font-size: .78rem;
+  }
+
+  .grimdata-mark {
+    font-size: .78rem;
+  }
+
+  footer {
+    padding-top: 32px;
+    padding-bottom: 38px;
+    gap: 8px;
+  }
+
+  .footer-brand {
+    font-size: 1.62rem;
+    line-height: 1.1;
+  }
+
+  footer > p:not([style*="grid-column"]) {
+    font-size: .98rem !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Keep the long disclaimer useful but visually secondary. */
+  footer > p[style*="grid-column"],
+  footer > div[style*="grid-column"] {
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    font-size: .64rem !important;
+    line-height: 1.42 !important;
+    color: var(--muted) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header {
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 8px;
+  }
+
+  .wordmark {
+    font-size: 1.08rem;
+  }
+
+  .airaware-mark img {
+    height: 28px !important;
+    max-width: 80px !important;
+  }
+
+  .grimdata-mark {
+    font-size: .72rem;
+  }
+}
