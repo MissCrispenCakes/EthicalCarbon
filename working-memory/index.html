@@ -15,7 +15,7 @@
   <style>
     .wm-hero { padding: clamp(70px, 10vw, 130px) clamp(22px, 7vw, 110px) 60px; }
     .wm-hero h1 { font-size: clamp(2.8rem, 6.4vw, 6.2rem); margin-bottom: 26px; }
-    .steps { list-style: none; padding: 0; margin: 34px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .steps { list-style: none; padding: 0; margin: 34px 0 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
     .steps li { background: var(--paper); padding: 26px 24px 30px; }
     .steps .number { font-size: .78rem; font-weight: 700; color: var(--green); }
     .steps h3 { font-size: 1.35rem; margin: 34px 0 10px; letter-spacing: -.03em; }
@@ -32,13 +32,22 @@
     .notes { counter-reset: n; list-style: none; padding: 0; margin: 18px 0 0; font-size: .95rem; color: var(--muted); }
     .notes li { display: flex; gap: 10px; padding: 5px 0; }
     .notes b { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; background: var(--ink); color: var(--paper); font-size: .75rem; display: inline-flex; align-items: center; justify-content: center; }
+    .art { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; margin-top: 34px; }
+    .art canvas { display: block; width: 100%; max-width: 560px; aspect-ratio: 1; background: #13231b; border-radius: 4px; }
+    .art-controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    .art-controls button { font: 600 .95rem "DM Sans", sans-serif; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); cursor: pointer; min-height: 44px; }
+    .art-controls button.primary { background: var(--ink); color: var(--paper); }
+    .art-controls input[type=range] { flex: 1 1 160px; accent-color: var(--green); min-height: 44px; }
+    .art-controls output { font-weight: 600; min-width: 4.5em; }
+    .art .body-copy p { font-size: 1.05rem; }
+    .art figcaption { margin-top: 10px; font-size: .9rem; color: var(--muted); }
     .background { background: #e7eddc; }
     .background .body-copy p { font-size: 1.02rem; }
     .small-links { font-size: .95rem; margin-top: 18px; }
     .small-links a { font-weight: 600; text-underline-offset: 4px; }
     .back { display: inline-block; margin-top: 26px; font-weight: 600; text-underline-offset: 4px; }
     @media (max-width: 1100px) { .steps { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 900px) { .map-wrap { grid-template-columns: 1fr; } .steps { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 900px) { .map-wrap, .art { grid-template-columns: 1fr; } .steps { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 580px) { .steps { grid-template-columns: 1fr; } .wm-hero { padding-left: 18px; padding-right: 18px; } }
   </style>
 </head>
@@ -80,13 +89,14 @@
 
     <section class="section">
       <div class="eyebrow">How a map gets made</div>
-      <h2>Walk, notice, talk, map, return.</h2>
+      <h2>Walk, notice, talk, map, return, share.</h2>
       <ol class="steps">
         <li><span class="number">01</span><h3>Walk</h3><p>Residents choose everyday routes: to school, to work, to the bus stop, to the park.</p></li>
         <li><span class="number">02</span><h3>Notice + sense</h3><p>A small air sensor takes readings along the way, and walkers note traffic, idling, construction, smells, shade and green space.</p></li>
         <li><span class="number">03</span><h3>Talk</h3><p>Conversations with neighbours, workshops and expert sessions add what a sensor can't: when it is worse, who is affected, what has changed.</p></li>
         <li><span class="number">04</span><h3>Map</h3><p>Routes, readings, streets and buildings, and residents' notes come together on one map.</p></li>
         <li><span class="number">05</span><h3>Return</h3><p>The routes are walked again across the seasons, so the record stays alive and change can be seen.</p></li>
+        <li><span class="number">06</span><h3>Community art</h3><p>The memory becomes something to gather around: displays, prints and projections made with residents, so it is shared beyond the data.</p></li>
       </ol>
     </section>
 
@@ -178,6 +188,27 @@
       </div>
     </section>
 
+    <section class="section">
+      <div class="eyebrow">06 · Community art (hypothetical)</div>
+      <h2>The memory as a shape that grows.</h2>
+      <div class="art">
+        <figure style="margin:0">
+          <canvas id="memory-art" width="1120" height="1120" role="img" aria-label="A hypothetical artwork: twelve rings, one per monthly walk, growing outward from the centre. Each ring bulges outward and turns warmer in colour where the air was worse, and settles inward in green where it was calmer. Small marks show residents' notes."></canvas>
+          <div class="art-controls">
+            <button type="button" id="art-play" class="primary">▶ Play the year</button>
+            <input type="range" id="art-month" min="1" max="12" value="12" step="1" aria-label="Month">
+            <output id="art-label" for="art-month">December</output>
+          </div>
+          <figcaption>Hypothetical artwork: drawn from imagined walks, not real data.</figcaption>
+        </figure>
+        <div class="body-copy">
+          <p>Each walk adds a ring. Where the air was worse, the line pushes outward and warms in colour, through the same scale as the map; where it was calmer, it settles inward and stays green.</p>
+          <p>Residents' notes leave small marks on the ring of the month they were made. Over a year, the neighbourhood draws its own portrait, a shape no single walk could make.</p>
+          <p>As public art it could be printed, projected on a wall, or grown live at a community event as each new walk is added.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section split background">
       <div>
         <div class="eyebrow">Where the idea comes from</div>
@@ -214,5 +245,82 @@
   </div>
 </footer>
 
+<script>
+// Hypothetical community artwork: one ring per monthly walk, shaped and coloured by imagined relative
+// air readings around the route. Deterministic, so everyone sees the same piece. Not real data.
+(() => {
+  const cv = document.getElementById('memory-art'), ctx = cv.getContext('2d');
+  const slider = document.getElementById('art-month'), label = document.getElementById('art-label');
+  const play = document.getElementById('art-play');
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const SCALE = [[127,176,105],[230,200,79],[224,138,60],[200,85,61]];          // lower → higher, as on the map
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const N = 220;
+  // Imagined route around the ring: main road (worse), bus stop (worse, mornings), construction
+  // (spring to autumn), park (calmer). Each month gets small differences of its own.
+  const spots = [{a: 0.35, w: .45, v: .55}, {a: 3.5, w: .5, v: .5}, {a: 1.2, w: .25, v: .35},
+                 {a: 2.2, w: .35, v: .45, from: 3, to: 9}, {a: 4.9, w: .7, v: -.45}];
+  const months = Array.from({length: 12}, (_, m) => {
+    const ph = Array.from({length: 4}, () => rnd() * 6.283), amp = Array.from({length: 4}, () => .04 + rnd() * .06);
+    const winter = m < 2 || m > 9 ? .12 : 0;                                    // heating season
+    const vals = Array.from({length: N}, (_, i) => {
+      const t = i / N * 6.283;
+      let v = .3 + winter;
+      for (const s of spots) {
+        if (s.from !== undefined && (m < s.from || m > s.to)) continue;
+        const d = Math.atan2(Math.sin(t - s.a), Math.cos(t - s.a));
+        v += s.v * Math.exp(-(d * d) / (2 * s.w * s.w));
+      }
+      for (let k = 0; k < 4; k++) v += amp[k] * Math.sin((k + 2) * t + ph[k]);
+      return Math.max(0, Math.min(1, v));
+    });
+    const notes = Array.from({length: 1 + Math.floor(rnd() * 3)}, () => Math.floor(rnd() * N));
+    return {vals, notes};
+  });
+  function colour(v, a) {
+    const x = v * 3, i = Math.min(2, Math.floor(x)), f = x - i, c0 = SCALE[i], c1 = SCALE[i + 1];
+    return `rgba(${c0.map((c, k) => Math.round(c + (c1[k] - c) * f)).join(',')},${a})`;
+  }
+  function draw(upto, breath) {
+    const W = cv.width, c = W / 2;
+    ctx.clearRect(0, 0, W, W);
+    for (let m = 0; m < upto; m++) {
+      const {vals, notes} = months[m], newest = m === upto - 1;
+      const base = W * (.08 + m * .028) * (newest ? 1 + breath * .012 : 1), bulge = W * .05;
+      const pt = (i) => { const t = i / N * 6.283, r = base + bulge * (vals[i] - .35);
+                           return [c + r * Math.cos(t), c + r * Math.sin(t)]; };
+      ctx.lineWidth = (newest ? 2.6 : 1.6) * W / 560;
+      for (let i = 0; i < N; i++) {
+        const [x0, y0] = pt(i), [x1, y1] = pt((i + 1) % N);
+        ctx.strokeStyle = colour(vals[i], newest ? .95 : .55 + m * .02);
+        ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
+      }
+      for (const i of notes) {
+        const [x, y] = pt(i);
+        ctx.fillStyle = 'rgba(245,241,231,.9)'; ctx.beginPath(); ctx.arc(x, y, (newest ? 3.6 : 2.4) * W / 560, 0, 6.283); ctx.fill();
+      }
+    }
+  }
+  let month = 12, playing = false, last = 0, t0 = performance.now();
+  function show(m) { month = m; slider.value = m; label.textContent = MONTHS[m - 1]; }
+  function frame(now) {
+    if (playing && now - last > 1500) {                     // one month every 1.5 s
+      last = now;
+      if (month >= 12) { playing = false; play.textContent = '▶ Play the year'; } else show(month + 1);
+    }
+    draw(month, reduce ? 0 : Math.sin((now - t0) / 4000 * 6.283));   // slow 4 s breath on the newest ring
+    requestAnimationFrame(frame);
+  }
+  slider.addEventListener('input', () => { playing = false; play.textContent = '▶ Play the year'; show(+slider.value); });
+  play.addEventListener('click', () => {
+    if (playing) { playing = false; play.textContent = '▶ Play the year'; return; }
+    if (month >= 12) show(1);
+    playing = true; last = performance.now(); play.textContent = '❚❚ Pause';
+  });
+  show(12);
+  requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>
