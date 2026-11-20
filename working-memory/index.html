@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Neighbourhood Environmental Working Memory: residents walk, notice, sense and talk, and build a shared map of their neighbourhood's air and climate that is revisited through the year." />
+  <meta property="og:title" content="Neighbourhood Environmental Working Memory · EthicalCarbon" />
+  <meta property="og:description" content="A neighbourhood remembers what its residents notice." />
+  <meta property="og:type" content="website" />
+  <title>Neighbourhood Environmental Working Memory · EthicalCarbon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .wm-hero { padding: clamp(70px, 10vw, 130px) clamp(22px, 7vw, 110px) 60px; }
+    .wm-hero h1 { font-size: clamp(2.8rem, 6.4vw, 6.2rem); margin-bottom: 26px; }
+    .steps { list-style: none; padding: 0; margin: 34px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .steps li { background: var(--paper); padding: 26px 24px 30px; }
+    .steps .number { font-size: .78rem; font-weight: 700; color: var(--green); }
+    .steps h3 { font-size: 1.35rem; margin: 34px 0 10px; letter-spacing: -.03em; }
+    .steps p { margin: 0; color: var(--muted); }
+    .map-wrap { display: grid; grid-template-columns: 1.45fr .55fr; gap: 40px; align-items: start; margin-top: 34px; }
+    .map-wrap figure { margin: 0; }
+    .map-wrap figure svg { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: #fbf8f0; }
+    .map-wrap figcaption { margin-top: 10px; font-size: .9rem; color: var(--muted); }
+    .legend { list-style: none; padding: 0; margin: 0; font-size: .95rem; }
+    .legend li { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--line); }
+    .legend svg { flex: 0 0 auto; }
+    .legend .scale { display: inline-flex; gap: 3px; }
+    .legend .scale i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+    .notes { counter-reset: n; list-style: none; padding: 0; margin: 18px 0 0; font-size: .95rem; color: var(--muted); }
+    .notes li { display: flex; gap: 10px; padding: 5px 0; }
+    .notes b { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; background: var(--ink); color: var(--paper); font-size: .75rem; display: inline-flex; align-items: center; justify-content: center; }
+    .background { background: #e7eddc; }
+    .background .body-copy p { font-size: 1.02rem; }
+    .small-links { font-size: .95rem; margin-top: 18px; }
+    .small-links a { font-weight: 600; text-underline-offset: 4px; }
+    .back { display: inline-block; margin-top: 26px; font-weight: 600; text-underline-offset: 4px; }
+    @media (max-width: 1100px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 900px) { .map-wrap { grid-template-columns: 1fr; } .steps { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 580px) { .steps { grid-template-columns: 1fr; } .wm-hero { padding-left: 18px; padding-right: 18px; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="../" aria-label="EthicalCarbon home">EthicalCarbon<span>.</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="../#about">About</a>
+      <a href="../#work">What we do</a>
+      <a href="../#collaborators">Collaborators</a>
+      <div class="project-links" aria-label="Connected initiatives" style="display:flex;align-items:center;gap:14px;flex-wrap:nowrap;">
+        <a class="mini-mark airaware-mark" href="https://myairwear.ca" target="_blank" rel="noopener" aria-label="Visit We Are Air Aware" style="display:inline-flex;align-items:center;gap:5px;white-space:nowrap;">
+          <img src="../logo.svg" alt="We Are Air Aware" style="display:block;height:28px;width:auto;max-width:82px;" />
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a class="mini-mark grimdata-mark" href="https://grimdata.org/website/" target="_blank" rel="noopener" aria-label="Visit GRIMdata" style="white-space:nowrap;">GRIMdata ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="wm-hero">
+      <div class="hero-kicker">Current direction</div>
+      <h1>Neighbourhood Environmental <em>Working Memory</em></h1>
+      <p class="hero-copy">A neighbourhood remembers what its residents notice. This project helps make that memory visible, shared and useful for climate action.</p>
+    </section>
+
+    <section class="section split">
+      <div>
+        <div class="eyebrow">What it is</div>
+        <h2>A shared map that keeps growing.</h2>
+      </div>
+      <div class="body-copy">
+        <p>A participatory climate-learning project. Residents and the EthicalCarbon team walk the neighbourhood together, notice what affects the air and the climate where people live, take simple readings with low-cost sensors, and talk about what they see.</p>
+        <p>Those observations come together on one map: a working memory of the neighbourhood that is revisited through the year, so changes become visible and questions can be followed up.</p>
+        <p><strong>For communities, not laboratories.</strong> Sensors are used for learning and participation, not as regulatory monitors, and what residents know counts as evidence too.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="eyebrow">How a map gets made</div>
+      <h2>Walk, notice, talk, map, return.</h2>
+      <ol class="steps">
+        <li><span class="number">01</span><h3>Walk</h3><p>Residents choose everyday routes: to school, to work, to the bus stop, to the park.</p></li>
+        <li><span class="number">02</span><h3>Notice + sense</h3><p>A small air sensor takes readings along the way, and walkers note traffic, idling, construction, smells, shade and green space.</p></li>
+        <li><span class="number">03</span><h3>Talk</h3><p>Conversations with neighbours, workshops and expert sessions add what a sensor can't: when it is worse, who is affected, what has changed.</p></li>
+        <li><span class="number">04</span><h3>Map</h3><p>Routes, readings, streets and buildings, and residents' notes come together on one map.</p></li>
+        <li><span class="number">05</span><h3>Return</h3><p>The routes are walked again across the seasons, so the record stays alive and change can be seen.</p></li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <div class="eyebrow">What such a map can look like</div>
+      <h2>Air, streets and the paths people walk.</h2>
+      <div class="map-wrap">
+        <figure>
+          <svg viewBox="0 0 640 420" role="img" aria-labelledby="map-title map-desc">
+            <title id="map-title">Illustrative neighbourhood map</title>
+            <desc id="map-desc">An imagined neighbourhood. A main road runs across the middle and an avenue runs down the right side, with a construction site and bus stops beside them and a park in the lower left. A dashed walking route goes from home past the bus stop and the construction site, along the main road, and through the park to the school. Dots along the route show relative air readings: higher near the main road, the bus stop and the construction site, lower inside the park. Three numbered notes from residents mark places along the route.</desc>
+            <defs>
+              <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="8" height="8" fill="#efe6cf"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c9a44a" stroke-width="3"/>
+              </pattern>
+            </defs>
+            <!-- blocks -->
+            <g fill="#ebe6d9" stroke="#d8d1bf">
+              <rect x="20" y="20" width="160" height="100" rx="6"/><rect x="200" y="20" width="190" height="100" rx="6"/>
+              <rect x="470" y="20" width="150" height="100" rx="6"/><rect x="200" y="200" width="190" height="90" rx="6"/>
+              <rect x="470" y="200" width="150" height="90" rx="6"/><rect x="200" y="310" width="190" height="90" rx="6"/>
+              <rect x="470" y="310" width="150" height="90" rx="6"/>
+            </g>
+            <!-- park -->
+            <rect x="20" y="200" width="160" height="200" rx="10" fill="#d6e5bd" stroke="#b5cc93"/>
+            <g fill="#a9c47f"><circle cx="55" cy="235" r="11"/><circle cx="140" cy="250" r="13"/><circle cx="70" cy="330" r="12"/><circle cx="150" cy="370" r="10"/><circle cx="110" cy="300" r="9"/></g>
+            <text x="100" y="392" text-anchor="middle" font-size="12" fill="#3f6b3a" font-family="DM Sans, sans-serif">park</text>
+            <!-- construction -->
+            <rect x="290" y="30" width="90" height="70" rx="4" fill="url(#hatch)" stroke="#c9a44a"/>
+            <rect x="297" y="57" width="76" height="17" rx="3" fill="#fbf8f0"/><text x="335" y="69" text-anchor="middle" font-size="11" fill="#7b6420" font-family="DM Sans, sans-serif">construction</text>
+            <!-- roads -->
+            <rect x="0" y="134" width="640" height="52" fill="#d3cdbd"/>
+            <line x1="0" y1="160" x2="640" y2="160" stroke="#f5f1e7" stroke-width="2" stroke-dasharray="14 10"/>
+            <text x="16" y="154" font-size="11" fill="#5a675f" font-family="DM Sans, sans-serif">main road</text>
+            <rect x="404" y="0" width="52" height="420" fill="#d3cdbd"/>
+            <line x1="430" y1="0" x2="430" y2="134" stroke="#f5f1e7" stroke-width="2" stroke-dasharray="14 10"/><line x1="430" y1="186" x2="430" y2="420" stroke="#f5f1e7" stroke-width="2" stroke-dasharray="14 10"/>
+            <text x="446" y="412" font-size="11" fill="#5a675f" font-family="DM Sans, sans-serif" transform="rotate(-90 446 412)">avenue</text>
+            <rect x="186" y="186" width="14" height="234" fill="#e3ddcf"/><rect x="390" y="186" width="14" height="234" fill="#e3ddcf"/>
+            <!-- bus stops -->
+            <g font-family="DM Sans, sans-serif" font-size="10" fill="#13231b">
+              <rect x="470" y="122" width="14" height="10" fill="#13231b"/><text x="488" y="131">bus</text>
+              <rect x="220" y="188" width="14" height="10" fill="#13231b"/><text x="238" y="197">bus</text>
+            </g>
+            <!-- school and home -->
+            <g font-family="DM Sans, sans-serif" font-size="12" fill="#13231b">
+              <rect x="40" y="40" width="120" height="60" rx="4" fill="#f5f1e7" stroke="#13231b"/><text x="100" y="75" text-anchor="middle">school</text>
+              <rect x="520" y="330" width="80" height="50" rx="4" fill="#f5f1e7" stroke="#13231b"/><text x="560" y="360" text-anchor="middle">home</text>
+            </g>
+            <!-- walking route -->
+            <path d="M520 355 H 430 V 160 H 190 V 300 H 100 V 100" fill="none" stroke="#24563d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 9"/>
+            <!-- air readings: relative categories only -->
+            <g stroke="#fbf8f0" stroke-width="2">
+              <circle cx="490" cy="355" r="8" fill="#e6c84f"/>
+              <circle cx="430" cy="300" r="8" fill="#e6c84f"/>
+              <circle cx="430" cy="230" r="8" fill="#e08a3c"/>
+              <circle cx="430" cy="172" r="9" fill="#c8553d"/>
+              <circle cx="360" cy="160" r="9" fill="#c8553d"/>
+              <circle cx="290" cy="160" r="8" fill="#e08a3c"/>
+              <circle cx="215" cy="160" r="9" fill="#c8553d"/>
+              <circle cx="190" cy="240" r="8" fill="#e6c84f"/>
+              <circle cx="140" cy="300" r="8" fill="#7fb069"/>
+              <circle cx="100" cy="230" r="8" fill="#7fb069"/>
+              <circle cx="100" cy="140" r="8" fill="#e08a3c"/>
+            </g>
+            <!-- residents' notes -->
+            <g font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#f5f1e7">
+              <circle cx="246" cy="128" r="11" fill="#13231b"/><text x="246" y="132" text-anchor="middle">1</text>
+              <circle cx="372" cy="122" r="11" fill="#13231b"/><text x="372" y="126" text-anchor="middle">2</text>
+              <circle cx="72" cy="282" r="11" fill="#13231b"/><text x="72" y="286" text-anchor="middle">3</text>
+            </g>
+          </svg>
+          <figcaption>Illustration only: an imagined neighbourhood showing how routes, readings, streets and residents' notes come together. Not real data.</figcaption>
+        </figure>
+        <div>
+          <ul class="legend" aria-label="Map key">
+            <li><svg width="34" height="10" aria-hidden="true"><line x1="2" y1="5" x2="32" y2="5" stroke="#24563d" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 9"/></svg>walking route</li>
+            <li><span class="scale" aria-hidden="true"><i style="background:#7fb069"></i><i style="background:#e6c84f"></i><i style="background:#e08a3c"></i><i style="background:#c8553d"></i></span>air readings, lower → higher</li>
+            <li><svg width="34" height="12" aria-hidden="true"><rect x="0" y="2" width="34" height="8" fill="#d3cdbd"/></svg>main road and avenue</li>
+            <li><svg width="34" height="12" aria-hidden="true"><rect x="10" y="1" width="14" height="10" fill="#13231b"/></svg>bus stop</li>
+            <li><svg width="34" height="14" aria-hidden="true"><rect x="4" y="1" width="26" height="12" fill="url(#hatch)" stroke="#c9a44a"/></svg>construction site</li>
+            <li><svg width="34" height="14" aria-hidden="true"><rect x="4" y="1" width="26" height="12" rx="3" fill="#d6e5bd" stroke="#b5cc93"/></svg>park and trees</li>
+          </ul>
+          <ol class="notes" aria-label="Residents' notes">
+            <li><b>1</b>"Buses idle here around eight in the morning."</li>
+            <li><b>2</b>"Dust from the site on windy days."</li>
+            <li><b>3</b>"Cooler and calmer under the trees."</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split background">
+      <div>
+        <div class="eyebrow">Where the idea comes from</div>
+        <h2>From a research scaffold to a neighbourhood's memory.</h2>
+      </div>
+      <div class="body-copy">
+        <p>The method grew out of research on environmental working memory: the idea that a shared environment can hold a record of what happened in it, so people can return to it, recognize what changed, and continue.</p>
+        <p>In that research, the working memory was a scaffold built in software, in immersive environments that keep traces of what people did in them. Here the same scaffold is turned outward: externalized into the neighbourhood and realized by the memory footprint of its residents, in the routes they walk, what they notice, and what they choose to record together.</p>
+        <p class="small-links">Research background: <a href="https://isotopicity.com" target="_blank" rel="noopener">Isotopicity ↗</a> · <a href="https://vivarium.headsetparties.com/" target="_blank" rel="noopener">Vivarium ↗</a></p>
+        <a class="back" href="../">← Back to EthicalCarbon</a>
+      </div>
+    </section>
+  </main>
+
+<footer>
+  <div class="footer-brand">EthicalCarbon<span>.</span></div>
+  <p>A resident-led climate and environmental initiative.</p>
+<p style="
+  text-align: right;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+">
+  Climate evidence.<br>
+  Community knowledge.<br>
+  Viable futures.
+</p>
+  <div style="grid-column: 1 / -1; border-top: 1px solid var(--line); margin-top: 12px; padding-top: 12px; font-size: .72rem; line-height: 1.45;">
+    <div><strong>Research/Data:</strong> These activities are not research studies and do not collect academic research data; separate research requires separate consent.</div>
+    <div><strong>Sensor:</strong> AirWear readings are educational particulate observations only; they are not regulatory measurements, medical or exposure assessments, greenhouse-gas measurements, or validated black-carbon measurements.</div>
+    <div><strong>Engineering/Technical:</strong> Technical demonstrations are educational only and do not constitute engineering advice, professional engineering services, certification, regulatory measurement, product approval, or safety assurance.</div>
+    <div><strong>Legal:</strong> For public education and community discussion only; nothing constitutes legal advice, legal services, or legal representation, no solicitor-client or lawyer-client relationship is created, and communications should not be treated as confidential or privileged.</div>
+  </div>
+</footer>
+
+</body>
+</html>
